@@ -2,12 +2,14 @@ version:  '3.2'
 services:
   zookeeper:
     image: "confluent/zookeeper"
+    container_name: zookeeper
     networks:
       - microprofile
     ports:
       - 2181:2181
   kafka:
     image: "confluent/kafka"
+    container_name: kafka
     networks:
       - microprofile
     ports:
@@ -20,6 +22,7 @@ services:
       - zookeeper
   schema-registry:
     image: "confluent/schema-registry"
+    container_name: schema-registry
     networks:
       - microprofile
     ports:
@@ -30,6 +33,7 @@ services:
       - kafka
   rest-proxy:
     image: "confluent/rest-proxy"
+    container_name: rest-proxy
     networks:
       - microprofile
     ports:
